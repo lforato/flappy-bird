@@ -1,0 +1,36 @@
+---
+# Based on LLVM style with custom modifications
+BasedOnStyle: LLVM
+
+# Colons on their own line (for constructor initializers, inheritance)
+BreakConstructorInitializers: BeforeColon
+BreakInheritanceList: BeforeColon
+
+# General formatting
+IndentWidth: 2
+ColumnLimit: 100
+UseTab: Never
+
+# Pointer and reference alignment
+PointerAlignment: Left
+ReferenceAlignment: Left
+
+# Braces
+BreakBeforeBraces: Allman
+
+# Function declarations
+AllowShortFunctionsOnASingleLine: Empty
+AlwaysBreakAfterReturnType: None
+
+# Control statements
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+
+# Spacing
+SpaceBeforeParens: ControlStatements
+SpaceAfterCStyleCast: false
+SpacesInParentheses: false
+
+# Include sorting
+SortIncludes: CaseInsensitive
+IncludeBlocks: Regroup
