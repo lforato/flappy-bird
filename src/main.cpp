@@ -40,13 +40,6 @@ int main()
   glfwMakeContextCurrent(window);
   gladLoadGL(glfwGetProcAddress);
 
-  unsigned int buffer;
-  glGenBuffers(1, &buffer);
-  glBindBuffer(GL_ARRAY_BUFFER, buffer);
-  glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), vertices, GL_STATIC_DRAW);
-  glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), 0);
-  glEnableVertexAttribArray(0);
-
   // --- rendering ---
   while (!glfwWindowShouldClose(window))
   {
