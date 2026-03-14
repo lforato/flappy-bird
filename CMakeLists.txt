@@ -4,7 +4,17 @@ project(flappy-bird)
 
 add_subdirectory("vendor/glfw")
 
-set(SOURCE src/main.cpp vendor/stb_image/stb_image.cpp)
+set(SOURCE
+    src/main.cpp
+    vendor/stb_image/stb_image.cpp
+    src/primitives/ArrayBuffer.cpp
+    src/primitives/ArrayBuffer.h
+    src/primitives/IndexBuffer.h
+    src/primitives/IndexBuffer.cpp
+    src/util/Shader.h
+    src/util/Shader.cpp
+    src/primitives/VertexArray.h
+    src/primitives/VertexArray.cpp)
 
 # GLAD setup
 set(GLAD_SOURCES_DIR "${PROJECT_SOURCE_DIR}/vendor/glad/")
