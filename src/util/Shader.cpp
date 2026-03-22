@@ -20,7 +20,6 @@ Shader::Shader(std::string vertexShaderPath, std::string fragmentShaderPath)
 
   glDeleteShader(vertex);
   glDeleteShader(fragment);
-
 }
 
 std::string Shader::LoadFile(std::string path)
@@ -55,4 +54,9 @@ void Shader::Bind()
 void Shader::Unbind()
 {
   glUseProgram(0);
+}
+
+unsigned int Shader::GetId()
+{
+  return m_ID;
 }

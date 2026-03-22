@@ -13,6 +13,8 @@ set(SOURCE
     src/primitives/IndexBuffer.cpp
     src/util/Shader.h
     src/util/Shader.cpp
+    src/util/Texture.h
+    src/util/Texture.cpp
     src/primitives/VertexArray.h
     src/primitives/VertexArray.cpp)
 
@@ -24,6 +26,7 @@ glad_add_library(glad_gl_core_33 REPRODUCIBLE API gl:core=3.3)
 add_executable(${PROJECT_NAME} ${SOURCE})
 
 target_include_directories(${PROJECT_NAME}
-                           PRIVATE ${PROJECT_SOURCE_DIR}/include)
+                           PRIVATE ${PROJECT_SOURCE_DIR}/include
+                           PRIVATE ${PROJECT_SOURCE_DIR}/vendor)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC glad_gl_core_33 glfw)

@@ -17,4 +17,5 @@ public:
 
   void Bind();
   void Unbind();
+  unsigned int GetId();
 };
