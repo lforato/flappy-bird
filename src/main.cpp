@@ -37,9 +37,6 @@ int main()
   Texture tex("../src/res/textures/flappy.png");
   tex.SetShader(program.GetId(), "uTexture");
 
-  glm::mat4 model = glm::mat4(1.0);
-  model = glm::translate(model, glm::vec3(1.0f, 1.0f, 0.0f));
-
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -51,9 +48,6 @@ int main()
     mesh.Bind();
     tex.Bind();
     program.Bind();
-
-    glUniformMatrix4fv(glGetUniformLocation(program.GetId(), "uModel"), 1, GL_FALSE,
-                       glm::value_ptr(model));
 
     tex.Use(0);
 
