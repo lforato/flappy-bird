@@ -5,8 +5,11 @@ layout (location = 1) in vec2 coordinates;
 
 out vec2 FragCoordinates;
 
+uniform mat4 uModel;
+uniform mat4 uProj;
+
 void main()
 {
-  gl_Position = vec4(position, 0.0, 1.0);
+  gl_Position = uProj * uModel * vec4(position, 0.0, 1.0);
   FragCoordinates = coordinates;
 }

@@ -4,20 +4,20 @@
 #include "util/Texture.h"
 #include "Window.h"
 
-#include <glm/ext/matrix_transform.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-const int WIDTH = 800;
-const int HEIGHT = 600;
+const float WIDTH = 800.0f;
+const float HEIGHT = 600.0f;
 
 // clang-format off
 std::vector<float> vertices = {
 //  x      y  |  u     v
-  -0.5f,  0.5f, 0.0f, 1.0f, // top-left
-  -0.5f, -0.5f, 0.0f, 0.0f, // bottom-left
-   0.5f,  0.5f, 1.0f, 1.0f, // top-right
-   0.5f, -0.5f, 1.0f, 0.0f, // bottom-right
+  00.0f, 13.0f, 0.0f, 1.0f, // top-left
+  00.0f, 00.0f, 0.0f, 0.0f, // bottom-left
+  18.0f, 13.0f, 1.0f, 1.0f, // top-right
+  18.0f, 00.0f, 1.0f, 0.0f, // bottom-right
 };
 
 std::vector<unsigned int> indices = {
@@ -40,6 +40,13 @@ int main()
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+  glm::mat4 model = glm::mat4(1.0f);
+  model = glm::scale(model, glm::vec3(10, 10, 0));
+  model = glm::translate(model, glm::vec3(20, 20, 0));
+
+  glm::mat4 proj = glm::ortho(0.0f, WIDTH, 0.0f, HEIGHT, -1.0f, 1.0f);
+
+
   while (!window.ShouldClose())
   {
     GlError(glClearColor(0.2f, 0.3f, 0.3f, 1.0f));
@@ -48,6 +55,9 @@ int main()
     mesh.Bind();
     tex.Bind();
     program.Bind();
+
+    glUniformMatrix4fv(glGetUniformLocation(program.GetId(), "uModel"), 1, GL_FALSE, glm::value_ptr(model));
+    glUniformMatrix4fv(glGetUniformLocation(program.GetId(), "uProj"), 1, GL_FALSE, glm::value_ptr(proj));
 
     tex.Use(0);
 
