@@ -1,6 +1,7 @@
 #pragma once
 
 #include "glad/gl.h"
+
 #include <glfw/glfw3.h>
 #include <string>
 
@@ -16,6 +17,8 @@ public:
   bool ShouldClose() const;
   void SwapBuffers();
   void PollEvents();
+  void SetWindowUserPointer(void* ptr);
 
   GLFWwindow* GetHandle() const;
+  void KeyCallback(GLFWkeyfun callback);
 };

@@ -1,7 +1,7 @@
 #include "Window.h"
 
-#include <iostream>
 #include <cstdlib>
+#include <iostream>
 
 Window::Window(int width, int height, const std::string& title)
 {
@@ -50,3 +50,13 @@ GLFWwindow* Window::GetHandle() const
 {
   return m_Window;
 }
+
+void Window::KeyCallback(GLFWkeyfun callback)
+{
+  glfwSetKeyCallback(m_Window, callback);
+}
+
+void Window::SetWindowUserPointer(void* ptr)
+{
+  glfwSetWindowUserPointer(m_Window, ptr);
+};

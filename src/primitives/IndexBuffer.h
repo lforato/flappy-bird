@@ -12,6 +12,8 @@ private:
 public:
   IndexBuffer(const void* data, std::size_t size, GLenum mode = GL_STATIC_DRAW);
   ~IndexBuffer();
+  IndexBuffer(const IndexBuffer&) = delete;
+  IndexBuffer& operator=(const IndexBuffer&) = delete;
 
   void Bind();
 

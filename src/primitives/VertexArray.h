@@ -8,6 +8,8 @@ private:
 public:
   VertexArray();
   ~VertexArray();
+  VertexArray(const VertexArray&) = delete;
+  VertexArray& operator=(const VertexArray&) = delete;
 
   void Bind();
   void Unbind();

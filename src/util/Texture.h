@@ -11,6 +11,8 @@ private:
 public:
   Texture(const char* path, GLenum wrap = GL_REPEAT, GLenum filter = GL_NEAREST);
   ~Texture() = default;
+  Texture(const Texture&) = delete;
+  Texture& operator=(const Texture&) = delete;
 
   void SetShader(unsigned int shaderId, const char* uniformName);
   void Bind();

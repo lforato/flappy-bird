@@ -56,6 +56,11 @@ void Shader::Unbind()
   glUseProgram(0);
 }
 
+Shader::~Shader()
+{
+  glDeleteProgram(m_ID);
+}
+
 unsigned int Shader::GetId()
 {
   return m_ID;

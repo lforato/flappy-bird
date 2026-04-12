@@ -13,7 +13,9 @@ private:
 
 public:
   Shader(std::string vertexShaderPath, std::string fragmentShaderPath);
-  ~Shader() = default;
+  ~Shader();
+  Shader(const Shader&) = delete;
+  Shader& operator=(const Shader&) = delete;
 
   void Bind();
   void Unbind();

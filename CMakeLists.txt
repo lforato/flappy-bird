@@ -19,6 +19,11 @@ set(SOURCE
     src/primitives/VertexArray.cpp
     src/primitives/Mesh.h
     src/primitives/Mesh.cpp
+    src/Event.h
+    src/Event.cpp
+    src/Object.h
+    src/Bird.h
+    src/Bird.cpp
     src/Window.h
     src/Window.cpp)
 
